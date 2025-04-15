@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Trainer Virtual</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container mt-5">
+    <h2 class="text-center mb-4">Monte seu Treino Personalizado</h2>
+    <form id="formTreino">
+      <div class="form-group">
+        <label for="nivel">Nível de atividade física:</label>
+        <select class="form-control" id="nivel">
+          <option value="iniciante">Iniciante</option>
+          <option value="intermediario">Intermediário</option>
+          <option value="avancado">Avançado</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="frequencia">Quantos dias por semana você quer treinar?</label>
+        <input type="number" id="frequencia" class="form-control" min="1" max="7">
+      </div>
+      <div class="form-group">
+        <label for="objetivo">Objetivo:</label>
+        <select class="form-control" id="objetivo">
+          <option value="perda">Perda de peso</option>
+          <option value="ganho">Ganho de massa</option>
+          <option value="resistencia">Resistência</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Gerar Treino</button>
+    </form>
+
+    <div class="mt-5" id="resultado">
+      <h4>Seu treino personalizado:</h4>
+      <ul class="list-group" id="listaTreino"></ul>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('formTreino');
+    const listaTreino = document.getElementById('listaTreino');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      listaTreino.innerHTML = '<li class="list-group-item">Carregando...</li>';
+
+      const nivel = document.getElementById('nivel').value;
+      const frequencia = parseInt(document.getElementById('frequencia').value);
+      const objetivo = document.getElementById('objetivo').value;
+
+      try {
+        const res = await fetch('https://wger.de/api/v2/exercise/?language=2&limit=100');
+        const data = await res.json();
+
+        let filtrados = data.results.filter(ex => {
+          // Simplesmente pegar alguns exercícios por enquanto
+          return ex.category && ex.description !== "";
+        });
+
+        listaTreino.innerHTML = '';
+        for (let i = 0; i < frequencia * 2; i++) {
+          let exercicio = filtrados[Math.floor(Math.random() * filtrados.length)];
+
+          let item = document.createElement('li');
+          item.classList.add('list-group-item');
+          item.innerHTML = `<strong>${exercicio.name}</strong><br><small>${exercicio.description.slice(0, 150)}...</small>`;
+          listaTreino.appendChild(item);
+        }
+
+      } catch (err) {
+        listaTreino.innerHTML = '<li class="list-group-item text-danger">Erro ao carregar exercícios.</li>';
+        console.error(err);
+      }
+    });
+  </script>
+</body>
+
+</html>
