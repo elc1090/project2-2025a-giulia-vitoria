@@ -1,53 +1,70 @@
-# Projeto: Consumindo uma API pública
+# Projeto: Plano de Exercícios Personalizado via API
 
-> 1. Baixe este arquivo e edite o texto em formato Markdown conforme as instruções a seguir.
-> 2. Substitua todos os trechos de texto iniciados com "Substitua" por informações do seu projeto, conforme solicitado em cada trecho.
-> 3. Substitua a imagem por um screenshot do projeto (arquivo pode ser armazenado no repositório ou em URL externa). GIFs animados também são permitidos!
-> 4. Remova todas as instruções de entrega.
-> 5. Double-check: Certifique-se de que seu README.md não contenha instruções de entrega!
-> 6. Entregue este README.md dentro da pasta raiz do repositório de entrega.
-> Opcional: é permitido alterar a formatação do README, desde que sejam mantidas todas as informações solicitadas (tudo bem adicionar mais informações)
+![Screenshot do projeto](https://mdswanson.com/static/chops-ux-step-4.png "Screenshot do projeto")
 
-![Substitua a imagem ao lado por um screenshot do seu projeto](https://mdswanson.com/static/chops-ux-step-4.png "Screenshot do projeto")
+**Acesso:** _Substitua este texto pela URL de deploy do projeto_
 
+---
 
-Acesso: Substitua este texto pela URL de deploy do projeto
+### 👩‍💻 Desenvolvedoras
 
+- Vitória Luiza Camara – Sistemas de Informação / UFSM  
+- Giulia Rodrigues de Araújo – Ciência da Computação / UFSM
 
-### Desenvolvedores
-Vitória Luiza Camara - Sistemas de Informação
-Giulia Rodrigues de Araújo - Ciência da Computação
+---
 
+### 💡 Nosso produto
 
-### Nosso produto
+Aplicativo web que oferece **sugestões de exercícios físicos** com base em **grupos musculares específicos**. A aplicação utiliza uma API pública de saúde e bem-estar para exibir atividades detalhadas, incluindo instruções, tipo de exercício e músculos trabalhados. O objetivo é ajudar usuários a planejarem treinos simples e acessíveis no dia a dia.
 
-Substitua este texto por uma descrição do que foi produzido: funcionalidades e relação com a temática "Conhecimento"
+---
 
+### 🔧 Desenvolvimento
 
+A ideia surgiu a partir da observação de que muitas pessoas querem iniciar uma rotina de exercícios, mas não sabem por onde começar. Pensando nisso, criamos um app com interface leve e intuitiva, que sugere exercícios automaticamente com base na escolha do grupo muscular.
 
-### Desenvolvimento
+**Etapas principais:**
 
-Substitua este texto por uma descrição do processo de desenvolvimento, explicando decisões tomadas e etapas do trabalho.
+- Estruturação da interface com HTML semântico.
+- Estilização da aplicação com CSS para facilitar a navegação.
+- Consumo da **Exercise API** da plataforma API Ninjas via JavaScript.
+- Implementação de lógica para capturar seleção de grupo muscular e exibir os exercícios relacionados em tempo real.
+- Realização de testes e ajustes no layout para garantir acessibilidade e responsividade.
+- Publicação com GitHub Pages.
 
+---
 
-#### Tecnologias
+### 🚀 Tecnologias
 
 - HTML
 - CSS
 - JavaScript
 
-#### Ambiente de desenvolvimento
+---
 
-- VSCode
+### 🧪 Ambiente de desenvolvimento
 
-#### Referências e créditos
-
-Substitua este trecho por uma lista bem detalhada de todo material consultado para ajudar no projeto, por exemplo:  URL de templates usados, URL de icon kits usados, créditos para colegas que colaboraram, geradores de código (incluindo alguns prompts usados para o ChatGPT, se for o caso)
-- ...
-- ...
-
-
-
+- Visual Studio Code  
+- Git / GitHub  
+- Navegadores Chrome e Firefox (para testes)  
 
 ---
-Projeto entregue para a disciplina de [Desenvolvimento de Software para a Web](http://github.com/andreainfufsm/elc1090-2025a) em 2025a
+
+### 📚 Referências e créditos
+
+- API pública: [API Ninjas – Exercise API](https://api-ninjas.com/api/exercises)
+- Deploy: [GitHub Pages](https://pages.github.com/)
+- Inspiração visual: [Chops UX](https://mdswanson.com/static/chops-ux-step-4.png)
+- Créditos para recursos e documentação utilizados no processo:
+  - Documentação oficial da API Ninjas
+  - [W3Schools](https://www.w3schools.com/)
+  - [MDN Web Docs](https://developer.mozilla.org/)
+  - ChatGPT (para suporte técnico e ideação de código)
+
+---
+
+📘 Projeto entregue para a disciplina de [Desenvolvimento de Software para a Web](http://github.com/andreainfufsm/elc1090-2025a) em 2025a
+
+---
+
+Se quiser, posso te ajudar com a imagem de exemplo do projeto e um link de deploy modelo também. Deseja?
