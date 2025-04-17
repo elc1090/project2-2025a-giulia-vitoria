@@ -67,4 +67,3 @@ A ideia surgiu a partir da observação de que muitas pessoas querem iniciar uma
 
 ---
 
-Se quiser, posso te ajudar com a imagem de exemplo do projeto e um link de deploy modelo também. Deseja?
