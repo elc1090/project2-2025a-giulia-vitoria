@@ -1,0 +1,28 @@
+https://wger.de/api/v2/equipment/{id}/ -> get
+
+https://wger.de/api/v2/exercise/{id}/ -> get, put, patch e delete
+
+https://wger.de/api/v2/exercise/search/ -> get
+
+https://wger.de/api/v2/exercisecategory/{id}/ -> get
+
+https://wger.de/api/v2/exerciseimage/{id}/ -> get, put, patch, delete
+https://wger.de/api/v2/exerciseimage/{id}/thumbnails/
+
+https://wger.de/api/v2/exerciseinfo/{id}/
+
+https://wger.de/api/v2/gallery/{id}/
+
+https://wger.de/api/v2/language/{id}/ -> para pegar em portugues
+
+https://wger.de/api/v2/max-repetitions-config/{id} ?
+
+https://wger.de/api/v2/max-rest-config/{id}/
+
+https://wger.de/api/v2/max-weight-config/{id}/
+
+https://wger.de/api/v2/muscle/ -> lista e id
+
+https://wger.de/api/v2/repetitions-config/
+
+https://wger.de/api/v2/video/
