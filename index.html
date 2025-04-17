@@ -1,84 +1,36 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Personal Trainer Virtual</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>App para montar treino</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
+<body class="bg-gray-100">
 
-<body>
-  <div class="container mt-5">
-    <h2 class="text-center mb-4">Monte seu Treino Personalizado</h2>
-    <form id="formTreino">
-      <div class="form-group">
-        <label for="nivel">Nível de atividade física:</label>
-        <select class="form-control" id="nivel">
-          <option value="iniciante">Iniciante</option>
-          <option value="intermediario">Intermediário</option>
-          <option value="avancado">Avançado</option>
-        </select>
+  <!-- Header -->
+  <header class="fixed top-0 left-0 w-full bg-white shadow z-50">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <!-- Substitua pela imagem da logo se quiser -->
+        <div class="text-orange-500 font-bold text-xl">Hype Fitness</div>
       </div>
-      <div class="form-group">
-        <label for="frequencia">Quantos dias por semana você quer treinar?</label>
-        <input type="number" id="frequencia" class="form-control" min="1" max="7">
+      <div>
+        <a href="#" class="text-gray-700 font-semibold hover:text-orange-500 transition">Home</a>
       </div>
-      <div class="form-group">
-        <label for="objetivo">Objetivo:</label>
-        <select class="form-control" id="objetivo">
-          <option value="perda">Perda de peso</option>
-          <option value="ganho">Ganho de massa</option>
-          <option value="resistencia">Resistência</option>
-        </select>
-      </div>
-      <button type="submit" class="btn btn-primary">Gerar Treino</button>
-    </form>
-
-    <div class="mt-5" id="resultado">
-      <h4>Seu treino personalizado:</h4>
-      <ul class="list-group" id="listaTreino"></ul>
     </div>
-  </div>
+  </header>
 
-  <script>
-    const form = document.getElementById('formTreino');
-    const listaTreino = document.getElementById('listaTreino');
+  <!-- Seção principal -->
+  <section class="bg-cover bg-center h-screen pt-20" style="background-image: url('https://images.unsplash.com/photo-1554284126-aa88f22d8b74');">
+    <div class="bg-black bg-opacity-50 w-full h-full flex items-center justify-center">
+      <div class="text-center px-4 md:px-8 text-white max-w-2xl">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">App para montar treino</h1>
+        <p class="text-lg md:text-xl mb-6">Revolucione sua rotina com um app gratuito e prático de treinos personalizados.</p>
+        <a href="plano.html" class="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-xl transition">MONTE SEU TREINO</a>
+      </div>
+    </div>
+  </section>
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      listaTreino.innerHTML = '<li class="list-group-item">Carregando...</li>';
-
-      const nivel = document.getElementById('nivel').value;
-      const frequencia = parseInt(document.getElementById('frequencia').value);
-      const objetivo = document.getElementById('objetivo').value;
-
-      try {
-        const res = await fetch('https://wger.de/api/v2/exercise/?language=2&limit=100');
-        const data = await res.json();
-
-        let filtrados = data.results.filter(ex => {
-          // Simplesmente pegar alguns exercícios por enquanto
-          return ex.category && ex.description !== "";
-        });
-
-        listaTreino.innerHTML = '';
-        for (let i = 0; i < frequencia * 2; i++) {
-          let exercicio = filtrados[Math.floor(Math.random() * filtrados.length)];
-
-          let item = document.createElement('li');
-          item.classList.add('list-group-item');
-          item.innerHTML = `<strong>${exercicio.name}</strong><br><small>${exercicio.description.slice(0, 150)}...</small>`;
-          listaTreino.appendChild(item);
-        }
-
-      } catch (err) {
-        listaTreino.innerHTML = '<li class="list-group-item text-danger">Erro ao carregar exercícios.</li>';
-        console.error(err);
-      }
-    });
-  </script>
 </body>
-
 </html>

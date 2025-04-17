@@ -43,4 +43,37 @@ form.addEventListener('submit', async (e) => {
         resultDiv.innerHTML = '<p>Erro ao carregar dados da API.</p>';
         console.error(error);
     }
+
+    const form = document.getElementById('formTreino');
+const listaTreino = document.getElementById('listaTreino');
+const resultado = document.getElementById('resultado');
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  listaTreino.innerHTML = '<li class="text-gray-500">Carregando...</li>';
+  resultado.classList.remove('hidden');
+
+  const frequencia = parseInt(document.getElementById('frequencia').value);
+
+  try {
+    const res = await fetch('https://wger.de/api/v2/exercise/?language=2&limit=100');
+    const data = await res.json();
+
+    const exercicios = data.results.filter(ex => ex.category && ex.description);
+
+    listaTreino.innerHTML = '';
+    for (let i = 0; i < frequencia * 2; i++) {
+      const ex = exercicios[Math.floor(Math.random() * exercicios.length)];
+      const item = document.createElement('li');
+      item.classList.add('bg-gray-100', 'p-4', 'rounded', 'shadow');
+      item.innerHTML = `<strong>${ex.name}</strong><p class="text-sm text-gray-700 mt-1">${ex.description.slice(0, 150)}...</p>`;
+      listaTreino.appendChild(item);
+    }
+  } catch (err) {
+    listaTreino.innerHTML = '<li class="text-red-500">Erro ao carregar exercícios.</li>';
+    console.error(err);
+  }
+});
+
 });
