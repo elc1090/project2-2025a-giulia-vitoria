@@ -5,7 +5,9 @@ const PT_BR = 2; // ID da linguagem pt-br na API
 
 // Busca exercícios com base na linguagem e limite
 export async function buscarExercicios(limit = 20) {
-  const res = await fetch(`${BASE_URL}/exercise/?language=${PT_BR}&limit=${limit}`);
+  const res = await fetch(
+    `${BASE_URL}/exercise/?language=${PT_BR}&limit=${limit}`
+  );
   const data = await res.json();
   return data.results;
 }
