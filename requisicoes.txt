@@ -1,13 +1,3 @@
-https://wger.de/api/v2/equipment/{id}/ -> get
-
-https://wger.de/api/v2/exercise/{id}/ -> get, put, patch e delete
-
-https://wger.de/api/v2/exercise/search/ -> get
-
-https://wger.de/api/v2/exercisecategory/{id}/ -> get
-
-https://wger.de/api/v2/exerciseimage/{id}/ -> get, put, patch, delete
-https://wger.de/api/v2/exerciseimage/{id}/thumbnails/
 
 https://wger.de/api/v2/exerciseinfo/{id}/
 
@@ -15,14 +5,12 @@ https://wger.de/api/v2/gallery/{id}/
 
 https://wger.de/api/v2/language/{id}/ -> para pegar em portugues
 
-https://wger.de/api/v2/max-repetitions-config/{id} ?
+https://wger.de/api/v2/muscle/ -> dá pra filtrar por musculos
 
-https://wger.de/api/v2/max-rest-config/{id}/
+todos esses ids possuem o mesmo modelo de imagem = [
+    465, 828, 365, 1297, 694, 571, 83, 268, 238, 348, 323, 237, 76, 377, 301, 537,
+    829, 427, 171, 525, 73, 482, 135, 197, 92, 1277, 185, 256, 154, 275, 572, 206,
+    367, 194, 167, 484, 1295, 95, 566, 543, 567, 375, 513, 84, 1276, 538, 75, 246,
+    822, 91, 366, 194, 197, 185, 171, 167, 154, 135, 95, 92, 91, 84, 83, 76, 75, 73
+]
 
-https://wger.de/api/v2/max-weight-config/{id}/
-
-https://wger.de/api/v2/muscle/ -> lista e id
-
-https://wger.de/api/v2/repetitions-config/
-
-https://wger.de/api/v2/video/

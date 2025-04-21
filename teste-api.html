@@ -1,83 +1,13 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Todos os Exercícios - Wger API</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        padding: 20px;
-      }
-      .exercise {
-        margin-bottom: 30px;
-        border-bottom: 1px solid #ccc;
-        padding-bottom: 10px;
-      }
-      img {
-        max-width: 300px;
-        display: block;
-        margin-top: 10px;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Todos os Exercícios da API Wger</h1>
-    <p id="status">Aguarde enquanto carregamos os dados...</p>
-    <div id="exercises"></div>
+<html>
+<head>
+  <title>Exercícios por ID</title>
+  <link rel="stylesheet" type="text/css" href="css/teste-api.css">
+</head>
+<body>
+  <h1>Exercícios por ID (wger)</h1>
+  <div id="container"></div>
 
-    <script>
-      const container = document.getElementById("exercises");
-      const statusText = document.getElementById("status");
-
-      async function fetchAllExercises(
-        url = "https://wger.de/api/v2/exercise/?language=2"
-      ) {
-        try {
-          const response = await fetch(url);
-          const data = await response.json();
-
-          console.log(`Carregando ${data.results.length} exercícios...`);
-
-          for (const exercise of data.results) {
-            const div = document.createElement("div");
-            div.className = "exercise";
-            div.innerHTML = `
-            <h2>${exercise.name || "Sem nome"} (ID: ${exercise.id})</h2>
-            <p>${exercise.description || "Sem descrição disponível."}</p>
-          `;
-            container.appendChild(div);
-
-            // Buscar imagem do exercício
-            try {
-              const imgRes = await fetch(
-                `https://wger.de/api/v2/exerciseimage/?exercise=${exercise.id}`
-              );
-              const imgData = await imgRes.json();
-              if (imgData.results.length > 0) {
-                const img = document.createElement("img");
-                img.src = imgData.results[0].image;
-                div.appendChild(img);
-              }
-            } catch (imgErr) {
-              console.warn(
-                `Erro ao carregar imagem do exercício ${exercise.id}`,
-                imgErr
-              );
-            }
-          }
-
-          if (data.next) {
-            await fetchAllExercises(data.next);
-          } else {
-            statusText.textContent = "Todos os exercícios foram carregados!";
-          }
-        } catch (err) {
-          console.error("Erro ao buscar os dados da API:", err);
-          statusText.textContent = "Erro ao carregar os exercícios.";
-        }
-      }
-
-      fetchAllExercises();
-    </script>
-  </body>
+  <script src="js/teste-api.js"></script>
+</body>
 </html>
