@@ -66,45 +66,58 @@ document.addEventListener("DOMContentLoaded", () => {
     const todosExercicios = filtrados.slice(0, totalExercicios);
     lista.innerHTML = "";
 
-    const criarBloco = (titulo, exercicios) => {
-      const bloco = document.createElement("li");
-      bloco.innerHTML = `<h3 class="dia-titulo">${titulo}</h3>`;
+    const criarCardDia = (titulo, exercicios) => {
+      const card = document.createElement("div");
+      card.classList.add("card");
+
+      const tituloDia = document.createElement("h3");
+      tituloDia.classList.add("text-xl", "font-semibold", "text-gray-800", "mb-4");
+      tituloDia.textContent = titulo;
+      card.appendChild(tituloDia);
+
       exercicios.forEach(exercicio => {
         const nome = exercicio.translations?.find(t => t.language === 2)?.name || exercicio.name || `ID: ${exercicio.id}`;
-        const musculos = exercicio.muscles?.map(m => m.name).join(", ") || "Not informed";
-        const musculosSecundarios = exercicio.muscles_secondary?.map(m => m.name).join(", ") || "Not informed";
+        const musculos = exercicio.muscles?.map(m => m.name).join(", ") || "Não informado";
+        const musculosSecundarios = exercicio.muscles_secondary?.map(m => m.name).join(", ") || "Não informado";
         const videos = exercicio.videos?.length > 0
-          ? exercicio.videos.map(v => `<a href="${v.video}" target="_blank" class="video-link">Vídeo</a>`).join(", ")
-          : "Not available";
+          ? exercicio.videos.map(v => `<a href="${v.video}" target="_blank" class="text-blue-500">Vídeo</a>`).join(", ")
+          : "Não disponível";
         const imagem = exercicio.images?.[0]?.image || null;
-        const equipamento = exercicio.equipment?.map(e => e.name).join(", ") || "Not informed";
-        const categoria = exercicio.category?.name || "Not informed";
+        const equipamento = exercicio.equipment?.map(e => e.name).join(", ") || "Não informado";
+        const categoria = exercicio.category?.name || "Não informado";
 
         const item = document.createElement("div");
-        item.className = "mb-4 p-4 bg-gray-100 rounded shadow";
+        item.classList.add("mb-4", "p-4", "bg-gray-100", "rounded", "shadow-sm");
         item.innerHTML = `
-          <h4 class="exercicio-nome">${nome}</h4>
-          <p><strong>Músculos:</strong> ${musculos}</p>
-          <p><strong>Secundários:</strong> ${musculosSecundarios}</p>
+          <h4 class="text-lg font-medium text-gray-800">${nome}</h4>
+          <p><strong>Músculos principais:</strong> ${musculos}</p>
+          <p><strong>Musculação Secundária:</strong> ${musculosSecundarios}</p>
           <p><strong>Equipamento:</strong> ${equipamento}</p>
           <p><strong>Categoria:</strong> ${categoria}</p>
           <p><strong>Vídeos:</strong> ${videos}</p>
           <p><strong>Séries:</strong> ${series}</p>
           <p><strong>Repetições:</strong> ${repeticoes}</p>
-          ${imagem ? `<img src="${imagem}" alt="${nome}" class="mt-2 max-w-xs rounded">` : '<p>No image</p>'}
+          ${imagem ? `<img src="${imagem}" alt="${nome}" class="mt-2 max-w-xs rounded">` : '<p>Sem imagem</p>'}
         `;
-        bloco.appendChild(item);
+        card.appendChild(item);
       });
-      lista.appendChild(bloco);
+
+      return card;
     };
+
+    // Adicionando os cards por dia
+    const gridContainer = document.createElement("div");
+    gridContainer.classList.add("cards-container");
 
     for (let i = 0; i < dias; i++) {
       const inicio = i * totalExerciciosPorDia;
       const fim = inicio + totalExerciciosPorDia;
       const exerciciosDia = todosExercicios.slice(inicio, fim);
-      criarBloco(`Dia ${i + 1}`, exerciciosDia);
+      const cardDia = criarCardDia(`Dia ${i + 1}`, exerciciosDia);
+      gridContainer.appendChild(cardDia);
     }
 
+    lista.appendChild(gridContainer);
     resultado.classList.remove("hidden");
   });
 });
