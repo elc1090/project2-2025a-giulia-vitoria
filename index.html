@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>App para montar treino</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body class="bg-gray-100">
     <!-- Header -->
-    <header class="fixed top-0 left-0 w-full bg-white shadow z-50">
+    <header class="fixed top-0 left-0 w-full bg-white shadow z-50 slide-down">
       <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
         <div class="flex items-center space-x-3">
           <!-- Substitua pela imagem da logo se quiser -->
@@ -21,26 +22,15 @@
     <!-- Seção principal -->
     <section
       class="bg-cover bg-center h-screen pt-20"
-      style="
-        background-image: url('https://images.unsplash.com/photo-1554284126-aa88f22d8b74');
-      "
-    >
-      <div
-        class="bg-black bg-opacity-50 w-full h-full flex items-center justify-center"
-      >
-        <div class="text-center px-4 md:px-8 text-white max-w-2xl">
-          <h1 class="text-4xl md:text-5xl font-bold mb-4">
-            App para montar treino
-          </h1>
+      style="background-image: url('https://images.unsplash.com/photo-1554284126-aa88f22d8b74');">
+      <div class="bg-black bg-opacity-50 w-full h-full flex items-center justify-center">
+        <div class="text-center px-4 md:px-8 text-white max-w-2xl fade-in-up">
+          <h1 class="text-4xl md:text-5xl font-bold mb-4"> App para montar treino</h1>
           <p class="text-lg md:text-xl mb-6">
             Revolucione sua rotina com um app gratuito e prático de treinos
             personalizados.
           </p>
-          <a
-            href="plano.html"
-            class="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-xl transition"
-            >MONTE SEU TREINO</a
-          >
+          <a href="plano.html" class="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-xl transition">MONTE SEU TREINO</a>
         </div>
       </div>
     </section>
