@@ -1,10 +1,9 @@
 # Projeto: Plano de Exercícios Personalizado via API
 
-**Screenshot do projeto:**:
-![image](https://github.com/user-attachments/assets/8b845b99-8292-49da-a902-eb2be71cb107)
+**Screenshot do projeto:**
+![image](https://github.com/user-attachments/assets/790ee75a-bb74-4376-abad-e7380950ecea)
 
-
-**Acesso:**: https://elc1090.github.io/project2-2025a-giulia-vitoria/plano.html
+**Acesso:** https://elc1090.github.io/project2-2025a-giulia-vitoria/plano.html
 
 ---
 
