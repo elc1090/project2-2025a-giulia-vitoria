@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Favoritos - Hype Fitness</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="bg-gray-100">
+
+  <!-- Header -->
+  <header class="fixed top-0 left-0 w-full bg-white shadow z-50 slide-down">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <div>
+          <a href="index.html" class="text-orange-500 font-bold text-xl">Hype Fitness</a>
+        </div>
+      </div>
+      <div>
+        <a href="plano.html" class="text-gray-700 font-semibold hover:text-orange-500 transition">Monte seu treino</a>
+        <a href="exercicios.html" class="text-gray-700 font-semibold hover:text-orange-500 transition">Exercicios</a>
+        <a href="favoritos.html" class="text-gray-700 font-semibold hover:text-orange-500 transition">Favoritos</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Conteúdo -->
+  <section class="pt-24 min-h-screen bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1571731956672-643ba52f3c11');">
+    <div class="bg-black bg-opacity-60 w-full h-full py-10">
+      <div class="max-w-7xl mx-auto px-4 fade-in-up">
+
+        <h1 class="text-3xl md:text-4xl text-white font-bold mb-8">Seus Exercícios Favoritos</h1>
+
+        <!-- Container dos favoritos -->
+        <div id="favoritosContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"></div>
+
+        <div id="mensagemVazio" class="text-white text-center text-lg mt-10 hidden">
+          Nenhum exercício favoritado ainda!
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <script src="js/favoritos.js"></script>
+</body>
+</html>

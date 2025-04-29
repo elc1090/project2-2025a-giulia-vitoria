@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exercícios - Hype Fitness</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="bg-gray-100">
+  <header class="fixed top-0 left-0 w-full bg-white shadow z-50 slide-down">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <div>
+          <a href="index.html" class="text-orange-500 font-bold text-xl">Hype Fitness</a>
+        </div>
+      </div>
+      <div>
+        <a href="plano.html" class="text-gray-700 font-semibold hover:text-orange-500 transition">Monte seu treino</a>
+        <a href="exercicios.html" class="text-gray-700 font-semibold hover:text-orange-500 transition">Exercicios</a>
+        <a href="favoritos.html" class="text-gray-700 font-semibold hover:text-orange-500 transition">Favoritos</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="pt-24 min-h-screen bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1554284126-aa88f22d8b74');">
+    <div class="bg-black bg-opacity-60 w-full h-full py-10">
+      <div class="max-w-7xl mx-auto px-4 fade-in-up">
+        <div class="flex flex-col md:flex-row md:justify-between items-center mb-8">
+          <h1 class="text-3xl md:text-4xl text-white font-bold mb-4 md:mb-0">Explore os Exercícios</h1>
+          <input
+            type="text"
+            id="search"
+            placeholder="Buscar exercício..."
+            class="border rounded-xl p-2 w-full md:w-80 focus:outline-none focus:ring-2 focus:ring-orange-500"
+          />
+        </div>
+
+        <div id="container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"></div>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/teste-api.js"></script>
+</body>
+</html>
