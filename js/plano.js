@@ -105,7 +105,6 @@ document.addEventListener("DOMContentLoaded", () => {
       return card;
     };
 
-    // Adicionando os cards por dia
     const gridContainer = document.createElement("div");
     gridContainer.classList.add("cards-container");
 

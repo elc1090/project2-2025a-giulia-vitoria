@@ -45,10 +45,10 @@ function mostrarFavoritos(lista) {
         const categoria = exercicio.category?.name || "Não informada";
 
         const card = document.createElement("div");
-        card.classList.add("card", "bg-white", "rounded-xl", "shadow", "p-4", "flex", "flex-col", "justify-between");
+        card.classList.add("card", "flex", "flex-col", "justify-between");
 
         card.innerHTML = `
-            <h3 class="text-lg font-bold text-orange-500 mb-2">${nome}</h3>
+            <h3 class="exercicio-nome">${nome}</h3>
             <p><strong>Grupo principal:</strong> ${musculos}</p>
             <p><strong>Grupo secundário:</strong> ${musculosSecundarios}</p>
             <p><strong>Equipamento:</strong> ${equipamento}</p>
@@ -56,11 +56,26 @@ function mostrarFavoritos(lista) {
             <p><strong>Vídeo:</strong> ${videos}</p>
             <p><strong>Licença:</strong> ${licença}</p>
             ${imagem ? `<img src="${imagem}" alt="${nome}" class="mt-2 rounded-xl">` : '<p class="text-gray-400 mt-2">Sem imagem</p>'}
+            <button class="botao-laranja" data-id="${exercicio.id}">Desfavoritar</button>
         `;
 
         containerFavoritos.appendChild(card);
     });
+
+    const botoesDesfavoritar = document.querySelectorAll("button[data-id]");
+    botoesDesfavoritar.forEach(btn => {
+        btn.addEventListener("click", (event) => {
+            const idExercicio = parseInt(event.target.getAttribute("data-id"));
+            removerFavorito(idExercicio);
+        });
+    });
 }
 
+function removerFavorito(id) {
+    let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
+    favoritos = favoritos.filter(exercicioId => exercicioId !== id);
+    localStorage.setItem("favoritos", JSON.stringify(favoritos));
+    buscarExerciciosFavoritos();
+}
 
 buscarExerciciosFavoritos();

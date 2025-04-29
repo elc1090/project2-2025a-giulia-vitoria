@@ -16,8 +16,8 @@ async function buscarTodosExercicios() {
         } catch (error) {
             console.error("Erro ao buscar exercícios:", error);
             break;
-            }
         }
+    }
     mostrarExercicios(todosExercicios);
 }
 
@@ -27,7 +27,7 @@ function mostrarExercicios(lista) {
     const favoritosSalvos = JSON.parse(localStorage.getItem("favoritos")) || [];
 
     lista.forEach(exercicio => {
-        const nome = exercicio.name || `ID: ${exercicio.id}`;
+        const nome = `${exercicio.translations?.find(t => t.language === 2)?.name || exercicio.name} (ID: ${exercicio.id})`;
         const musculos = exercicio.muscles?.map(m => m.name).join(", ") || "Não informado";
         const musculosSecundarios = exercicio.muscles_secondary?.map(m => m.name).join(", ") || "Não informado";
         const videos = exercicio.videos?.length > 0 ? exercicio.videos.map(v => `<a href="${v.video}" target="_blank" class="text-orange-400 underline">Vídeo</a>`).join(", ") : "Não disponível";
@@ -67,6 +67,7 @@ function mostrarExercicios(lista) {
     });
 }
 
+
 function toggleFavorito(id) {
     let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
 
@@ -81,17 +82,12 @@ function toggleFavorito(id) {
     mostrarExercicios(todosExercicios);
 }
 
-
 function filtrarExercicios(termo) {
     const termoLower = termo.toLowerCase();
 
     const listaFiltrada = todosExercicios.filter(exercicio => {
-    const musculosPrimarios = exercicio.muscles?.map(m => m.name.toLowerCase()) || [];
-    const musculosSecundarios = exercicio.muscles_secondary?.map(m => m.name.toLowerCase()) || [];
-
-    const todosMusculos = musculosPrimarios.concat(musculosSecundarios);
-
-    return todosMusculos.some(nomeMusculo => nomeMusculo.includes(termoLower));
+        const nomeCategoria = exercicio.category?.name?.toLowerCase() || "";
+        return nomeCategoria.includes(termoLower);
     });
 
     mostrarExercicios(listaFiltrada);
