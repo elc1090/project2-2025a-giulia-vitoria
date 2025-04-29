@@ -1,122 +1,109 @@
 body { 
-    font-family: sans-serif; 
+  font-family: sans-serif; 
 }
 
 img {
-    max-width: 200px; margin-top: 5px; 
+  max-width: 200px; 
+  margin-top: 5px; 
+  border-radius: 8px; 
+  object-fit: cover; 
 }
 
 .card {
-    border: 1px solid #ccc; 
-    border-radius: 8px; 
-    padding: 10px; 
-    margin: 10px 0; 
+  background-color: white;
+  border: 1px solid #ccc; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  padding: 24px;
+  margin: 10px 0; 
+  transition: transform 0.3s ease-in-out;
+  width: 100%;
+  max-width: 320px; 
+  height: 550px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: scale(1.03);
 }
 
 .exercicio-nome {
-    font-size: 1.25rem;
-    font-weight: bold;
-    color: #f97316;
-    margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #f97316;
+  margin-bottom: 0.5rem;
 }
 
 .dia-titulo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #f97316;
-    margin-bottom: 1rem;
-    text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #f97316;
+  margin-bottom: 1rem;
+  text-align: center;
 }
 
 .video-link {
-    color: #f97316;
-    text-decoration: underline;
+  color: #f97316;
+  text-decoration: underline;
 }
 
 .video-link:hover {
-    color: #a04c10;
+  color: #a04c10;
 }
 
-/* Animação de fade in com leve movimento pra cima */
-@keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  .fade-in-up {
-    animation: fadeInUp 1s ease-out forwards;
-  }  
-
-  @keyframes slideDown {
-    from {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  .slide-down {
-    animation: slideDown 0.8s ease-out forwards;
-  }  
-
-/* Animação de fade in com leve movimento pra cima */
-@keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  .fade-in-up {
-    animation: fadeInUp 1s ease-out forwards;
-  }  
-
- /* Container para os cards */
 .cards-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 32px; /* Espaçamento maior entre os cards */
-    padding: 32px 24px; /* Espaçamento interno do container */
-    justify-items: center;
-    max-width: 1300px;
-    margin: 0 auto;
-  }
-  
-  /* Estilo individual para cada card */
-  .card {
-    background-color: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    border-radius: 12px;
-    padding: 24px;
-    margin-bottom: 0; /* O gap já cuida do espaçamento */
-    transition: transform 0.3s ease-in-out;
-    width: 100%;
-    max-width: 400px; /* Limita para não ficarem exageradamente largos */
-  }
-  
-  /* Efeito hover */
-  .card:hover {
-    transform: scale(1.03);
-  }
-  
-  /* Responsividade para telas menores */
-  @media (max-width: 768px) {
-    .cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 32px; 
+  padding: 32px 24px; 
+  justify-items: center;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .cards-container {
       grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
       gap: 20px;
       padding: 20px;
-    }
-  }  
+  }
+}
+
+.card p {
+  color: #374151; 
+  font-size: 0.9rem; 
+  margin-bottom: 6px;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-down {
+  animation: slideDown 0.8s ease-out forwards;
+}
